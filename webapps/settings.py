@@ -117,14 +117,29 @@ MEDIA_URL = '/media/'
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/1.10/howto/static-files/
-STATIC_ROOT = os.path.join(BASE_DIR, "meradio/static/")
+#STATIC_ROOT = os.path.join(BASE_DIR, "meradio/static/")
 STATIC_URL = '/static/'
-STATICFILES_DIRS = ( os.path.join('static'), )
+#STATICFILES_DIRS = ( os.path.join('static'), )
 
 # Configure django to print the email instead of sending it using an SMTP server
 #EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
+EMAIL_HOST = 'smtp.gmail.com'
+EMAIL_HOST_USER = 'rrodenbugrumblr@gmail.com'
+with open('/home/email_password.txt') as file:
+    EMAIL_HOST_PASSWORD = file.read().strip()
+EMAIL_PORT = 587
+EMAIL_USE_TLS = True
 
-
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.postgresql_psycopg2',
+        'NAME': 'urban_prod',
+        'USER': 'u_urban',
+        'PASSWORD': '123',
+        'HOST': 'localhost',
+        'PORT': '',
+    }
+}
 
 # Use browser-length session instead of persistent sessions
 SESSION_EXPIRED_AT_BROWSER_CLOSE = True
