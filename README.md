@@ -1,9 +1,16 @@
+
+
 Connecting to server:
 
 ssh root@192.241.176.138
 'Enter password'
 su - urban
 source bin/activate
+
+Getting music
+
+sign in as admin
+go to: ../musicify/admin/get-songs
 
 Website hosted at:
 192.241.176.138
