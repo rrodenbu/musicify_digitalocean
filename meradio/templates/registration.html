@@ -1,0 +1,58 @@
+{% extends "base.html" %}
+{% load staticfiles %}
+
+{% block title %}Musicify registration{% endblock %}
+{% block custom-css %}
+<link href="{% static '/css/register.css' %}" rel="stylesheet">
+{% endblock %}
+
+{% block body %}
+
+{% if messages %}
+{% for msg in messages %}
+<div class="alert alert-info" role="alert">
+  {{ msg }}
+</div>
+{% endfor %}
+{% endif %}
+
+{% for error in form.non_field_errors %}
+<div class="alert alert-danger" role="alert">
+  {{ error }}
+</div>
+{% endfor %}
+
+<div class="container">
+  <h2 class="form-heading" >Please register for a MUSICIFY account</h2>
+
+  <form class="form-signin" action="{% url 'register' %}" method="POST">
+    {% for field in form %}
+    {% if field.label == 'Password' %}
+    <input type="password" class="form-control"
+           name="password1"
+           id="id_{{ field.name }}"
+           placeholder="{{ field.label }}" >
+    {% elif field.label == 'Confirm Password' %}
+    <input type="password" class="form-control"
+           name="password2"
+           id="id_{{ field.name }}"
+           placeholder="{{ field.label }}" >
+    {% else %}
+    <input type="{{field.label}}" class="form-control"
+           name="{{ field.name }}"
+           id="id_{{ field.name }}"
+           placeholder="{{ field.label }}" >
+        <p>{{ field.errors }}</p>
+    {% endif %}
+    {% endfor %}
+
+    {% csrf_token %}
+    <input type="submit" value="Register" class="btn btn-lg btn-primary btn-block">
+  </form>
+  
+</div> <!-- /container -->
+
+<a class="hyperlink" href="{% url 'log-in' %}">Have an account? Click here to log in.</a>
+<a class="hyperlink" href="{% url 'forget-password' %}">Forgot password? Click here to reset.</a>
+
+{% endblock %}

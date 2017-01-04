@@ -1,0 +1,101 @@
+{% extends "base.html" %}
+{% load staticfiles %}
+
+{% block title %}Musicify friends stations{% endblock %}
+{% block custom-css %}
+<!-- put any custom css files here -->
+{% endblock %}
+
+{% block page-heading %}friends stations.{% endblock %}
+
+{% block body %}
+<div class="explore-container">
+  <div class="row">
+    <div class="col-md-4"></div>
+    
+    <div class="col-md-4">
+      <div class="friends-details">
+	<div class="panel panel-default">
+	  <div class="panel-heading">
+	    <div class="sidepanel-heading">
+	      <h4>Friends</h4>
+	    </div>
+	  </div>
+	  <div class="panel-body">
+	    <div class="friend">
+	      <img class="status-dot" src="{% static '/images/green-dot.png' %}" width="8px">
+	      Billy Smith
+	      <button type="button" class="btn unfollow-btn">unfollow</button>
+	      <hr class="no-space">
+	    </div>
+	    <div class="friend">
+	      <img class="status-dot" src="{% static '/images/green-dot.png' %}" width="8px">
+	      John Miller
+	      <button type="button" class="btn unfollow-btn">unfollow</button>
+	      <hr class="no-space">
+	    </div>
+	    <div class="friend">
+	      <img class="status-dot" src="{% static '/images/gray-dot.png' %}" width="8px">
+	      Zara Black
+	      <button type="button" class="btn unfollow-btn">unfollow</button>
+	      <hr class="no-space">
+	    </div>
+	    <div class="friend">
+	      <img class="status-dot" src="{% static '/images/gray-dot.png' %}" width="8px">
+	      Jane Black
+	      <button type="button" class="btn unfollow-btn">unfollow</button>
+	      <hr class="no-space">
+	    </div>
+	  </div>
+	</div>
+      </div>
+
+      <div class="find-friends-details">
+	<div class="panel panel-default">
+	  <div class="panel-heading">
+	    <div class="sidepanel-heading">
+	      <h4>Find Friends</h4>
+	    </div>
+	  </div>
+	  <div class="panel-body">
+	    <div class="search-form">
+	      <form>
+		<input class="form-control search-input" type="text" placeholder="search...">
+	      </form>
+	    </div>
+	    <hr class="no-space"
+	    <div class="friend">
+	      <img class="status-dot" src="{% static '/images/green-dot.png' %}" width="8px">
+	      Judy Mai
+	      <button type="button" class="btn follow-btn">follow</button>
+	      <hr class="no-space">
+	    </div>
+	    <div class="friend">
+	      <img class="status-dot" src="{% static '/images/green-dot.png' %}" width="8px">
+	      Charlie Garrod
+	      <button type="button" class="btn follow-btn">follow</button>
+	      <hr class="no-space">
+	    </div>
+	    <div class="friend">
+	      <img class="status-dot" src="{% static '/images/green-dot.png' %}" width="8px">
+	      Riley Rodenberg
+	      <button type="button" class="btn follow-btn">follow</button>
+	      <hr class="no-space">
+	    </div>
+	    <div class="friend">
+	      <img class="status-dot" src="{% static '/images/green-dot.png' %}" width="8px">
+	      Nguyen Dinh
+	      <button type="button" class="btn follow-btn">follow</button>
+	      <hr class="no-space">
+	    </div>
+	  </div>
+	</div>
+      </div>
+
+    </div>
+    
+    <div class="col-md-4"></div>
+
+  </div> <!-- end row -->
+</div>
+{% endblock %}

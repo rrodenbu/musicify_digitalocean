@@ -1,0 +1,34 @@
+{% extends "base.html" %}
+{% load staticfiles %}
+
+{% block title %}Musicify my station{% endblock %}
+{% block custom-css %}
+<!-- put any custom css files here -->
+{% endblock %}
+
+{% block page-heading %}
+<div class="alert alert-danger" role="alert" align="center">
+      There is an active streaming feed for this user. Only one streaming feed is allowed. If this is not you, please change your password immediately. Otherwise, please wait until the previous feed is safely closed.
+</div>
+    <a class="hyperlink" href="{% url 'forget-password' %}">Click here to reset your password.</a>
+
+{% block javascript %}
+<script>
+// Check current user playing status and refresh the page if the previous feed is closed
+function checkUserStatus() {
+    // Try to get username from my-avatar
+    var myAvatarUrl = $('.my-avatar').attr('src').split("/");
+    var username = myAvatarUrl[myAvatarUrl.length - 1];
+    $.get("/musicify/sync-user-song/"+username)
+            .done(function(data){
+                if (data.status == 'Stopped'){
+                    location.reload();
+                }
+            });
+}
+
+setInterval(checkUserStatus, 1000);
+
+</script>
+{% endblock %}
+{% endblock %}

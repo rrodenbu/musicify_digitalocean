@@ -1,0 +1,87 @@
+{% extends "base.html" %}
+{% load staticfiles %}
+
+{% block title %}Musicify settings{% endblock %}
+{% block custom-css %}
+<link href="{% static '/css/settings.css' %}" rel="stylesheet">
+{% endblock %}
+
+{% block page-heading %}&nbsp&nbsp&nbsp settings.{% endblock %}
+
+{% block body %}
+
+{% if messages %}
+{% for msg in messages %}
+<div class="alert alert-info" role="alert">
+  {{ msg }}
+</div>
+{% endfor %}
+{% endif %}
+
+{% for error in form.non_field_errors %}
+<div class="alert alert-danger" role="alert">
+  {{ error }}
+</div>
+{% endfor %}
+
+<div class="container">
+  <div class="settings-image">
+    <img id="avatar" src="{% url 'get-avatar' user.get_username %}" alt="{{ form.first_name.value }} {{ form.last_name.value }}">
+  </div>
+  <form enctype="multipart/form-data" class="form-signin" method="post" action="{% url 'settings' %}">
+    {% for field in form %}
+    {% if field.label == ' New Password' %}
+    <p id="passwordHelpBlock" class="form-text text-muted">
+      Password must be 8-20 characters long
+    </p>
+    <label>Change Password</label>
+    <input type="password" class="form-control"
+           name="password1"
+           id="id_{{ field.name }}"
+           placeholder="{{ field.label }}" >
+    {% elif field.label == 'Confirm Password' %}
+    <input type="password" class="form-control"
+           name="password2"
+           id="id_{{ field.name }}"
+           placeholder="{{ field.label }}" >
+    {% elif field.label == 'Avatar' %}
+    <label for="avatar">Change Avatar</label>
+    <input type="file" class="form-control" 
+	   name="avatar"
+           id="id_{{ field.name }}"
+           placeholder="{{ field.label }}" >
+    {% elif field.label == 'First Name' %}
+    <label>Change Name</label>
+    <input type="{{field.label}}" class="form-control"
+           name="{{ field.name }}"
+           id="id_{{ field.name }}"
+           placeholder="{{ field.label }}" >
+    {% elif field.label == 'Last Name' %}
+    <input type="{{field.label}}" class="form-control"
+           name="{{ field.name }}"
+           id="id_{{ field.name }}"
+           placeholder="{{ field.label }}" >
+    {% elif field.label == 'Description' %}
+    <label>Change {{field.label}}</label>
+    <textarea class="form-control"
+           name="{{ field.name }}"
+           id="id_{{ field.name }}"
+           placeholder="{{ field.label }}" ></textarea>
+    {% else %}
+    <label>Change {{field.label}}</label>
+    <input type="{{field.label}}" class="form-control"
+           name="{{ field.name }}"
+           id="id_{{ field.name }}"
+           placeholder="{{ field.label }}" >
+    {% endif %}
+    {% endfor %}
+
+    {% csrf_token %}
+    <input id="id-preview" type="hidden" name="next" value="{{ next }}">
+    <input type="submit" value="Update" class="btn btn-primary btn-lg btn-block">
+  </form>
+  
+</div> <!-- /container -->
+
+
+{% endblock %}

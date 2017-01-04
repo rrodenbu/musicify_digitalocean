@@ -1,0 +1,21 @@
+{% extends "base.html" %}
+{% load staticfiles %}
+
+{% block title %}Musicify forgot{% endblock %}
+{% block custom-css %}
+<link href="{% static '/css/forgotpw.css' %}" rel="stylesheet">
+{% endblock %}
+
+{% block body %}
+
+{% if messages %}
+{% for msg in messages %}
+<div class="alert alert-info" role="alert">
+  {{ msg }}
+</div>
+{% endfor %}
+{% endif %}
+
+<a class="hyperlink" href="{% url 'log-in' %}">Sign in.</a><br>
+
+{% endblock %}

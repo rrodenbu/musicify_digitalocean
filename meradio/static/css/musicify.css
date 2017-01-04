@@ -1,0 +1,536 @@
+.round-btn {
+  border-radius: 5px;
+}
+
+@font-face {
+  font-family: 'Quicksand', sans-serif;
+  font-style:  normal;
+  font-weight: 400;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'Quicksand', sans-serif;
+  font-style:  normal;
+  font-weight: 400;
+  padding: 0px;
+  margin: 0px;
+}
+
+p, div {
+  font-family: 'Quicksand', sans-serif;
+  font-style:  normal;
+  font-weight: 400;
+}
+
+hr.navline {
+  padding: 0px;
+  margin: -30px 0px -30px 0px; 
+  width: 100%; 
+  color: black; 
+  height: 1px; 
+  background-color: transparent;
+  background-image: linear-gradient(to right, #ffcdd9, #ff1a53, #ffcdd9); //#ccc, #333, #ccc);
+  box-shadow: none;
+  -webkit-box-shadow: none;
+  -moz-box-shadow: none;
+}
+
+.navbar-brand {
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 300;
+}
+
+.navbar {
+  background-color: white;
+  border: 0;
+  margin: 0px 0px 0px 0px;
+  padding: 0px;
+}
+
+hr.no-space {
+  padding: 5px 5px 5px 5px;
+  margin: 0px;	
+}
+
+hr.small-space {
+  padding: 0px 5px 5px 5px;
+  margin: 5px 0px 0px 0px;	
+}
+
+/***** PANELS *****/
+
+.panel {
+  border-radius: 20px;
+  -webkit-box-shadow: 0 2px 5px 2px #F5F5F5;	
+     -moz-box-shadow: 0 2px 5px 2px #F5F5F5;
+          box-shadow: 0 2px 5px 2px #F5F5F5;
+  animation: yes 0.7s ease-out;
+}
+
+.panel .panel-heading {
+  border-top-right-radius: 20px;
+  border-top-left-radius: 20px;
+  padding: 0px;
+  
+}
+
+.album-cover {
+  height: 273px;
+}
+
+.panel .panel-heading > img {
+  width: 100%;
+  height: 100%;
+  border-top-right-radius: 20px;
+  border-top-left-radius: 20px;
+}
+
+.panel .panel-body {
+  padding: 10px 5px 5px 5px;
+}
+
+.panel-heading .sidepanel-heading {
+  padding-top: 15px;
+  background-color: #ff3377; //#808080;
+  border-top-right-radius: 20px;
+  border-top-left-radius: 20px;
+  color: white;
+}
+
+.panel-body .sidepanel-body {
+  max-height: 300px;
+  text-align: left;
+  margin-left: 5px;
+}
+
+.panel-footer .sidepanel-footer {
+ padding-bottom: 15px;
+}
+
+.song-title {
+  font-weight: bold;
+}
+
+/****** BUTTONS *******/
+
+.explore-btn {
+  padding: 2px 3px 0px 3px;
+  border-radius: 20px;
+  border-color: transparent;
+}
+
+.explore-btn-span {
+  font-size: 30px;
+}
+
+.recommend-like-btn {
+  padding: 0px;
+  margin-right: 5px;
+  margin-bottom: 4px;
+  margin-top: 4px;
+  background-color: transparent;
+  border-color: transparent;
+  font-size: 10px;
+  color: green;
+  position: absolute;
+}
+
+.recommend-dislike-btn {
+  padding: 0px;
+  margin-left: 5px;
+  margin-bottom: 4px;
+  margin-top: 4px;
+  background-color: transparent;
+  border-color: transparent;
+  font-size: 10px;
+  color: red;
+  position: absolute;
+}
+
+.recommend-btn-span {
+  font-size: 9px;
+}
+
+.explore-btn-like {
+  color: green;
+  border-color: green;
+}
+.explore-btn-like:hover {
+  color: teal;
+  border-color: teal;
+}
+
+.explore-btn-dislike {
+  color: red;
+  border-color: red;
+}
+.explore-btn-dislike:hover {
+  color: pink;
+  border-color: pink;
+}
+
+.playlist-icons {
+  padding-bottom: 10px;
+}
+
+.playlist-icon {
+  padding: 10px 10px 10px 10px;
+  background-color: transparent;
+  border-color: transparent;
+}
+
+.favorite-btn {
+  padding: 3px 5px 3px 5px;
+  background-color: transparent;
+  border-color: transparent;
+}
+
+#id-favorite-header-btn-span {
+  font-size: 25px;
+}
+
+#id-favorite-btn-span {
+  font-size: 20px;
+}
+
+.edit-btn {
+  padding: 3px 5px 3px 5px;
+  background-color: transparent;
+  border-color: transparent;
+  margin-left: 10px;
+}
+
+#description-field {
+  max-width: 300px;
+}
+
+#description-btn {
+  margin-left: 10px;
+}
+
+.delete-song-btn {
+  padding: 0px;
+  margin-right: 5px;
+  margin-bottom: 4px;
+  margin-top: 4px;
+  background-color: transparent;
+  border-color: transparent;
+  font-size: 10px;
+  color: red;
+  position: absolute;
+}
+
+.status-dot {
+  padding-bottom: 2px;
+  margin-right: 5px;
+  margin-left: 5px;
+}
+
+/***** PROGRESS BAR ******/
+
+.progress-bar {
+  width: calc(100% - 6px);
+  height: 3px;
+  color: yellow; // #DB3082;
+  padding: -1px 0px 0px 0px;
+}
+
+.progress-bar-fill {
+  display: block;
+  height: 3px;
+  color: pink;
+  transition: width 5s ease-in-out;
+}
+
+.time-bar {
+  height: 3px;
+  color: red;
+  padding: -1px 0px 0px 0px;
+  margin: 0;
+  border-radius: 0;
+}
+
+/******** PLAY/PAUSE OVERLAY *********/
+
+#image-box {
+  box-shadow:inset 1px 1px 40px 0 rgba(0,0,0,.45);
+  background-size:cover;
+  overflow:hidden;
+}
+
+#overlay {  
+  background: rgba(0,0,0,.75);
+  text-align: center;
+  padding: 45px 0 66px 0;
+  opacity: 0.8;
+  -webkit-transition: opacity .25s ease;
+  -moz-transition: opacity .25s ease;
+  border-top-right-radius: 20px;
+  border-top-left-radius: 20px;
+}
+
+#image-box:hover #overlay {
+  opacity: 1;
+}
+
+#pause {  
+  font-family: Helvetica;
+  font-weight: 900;
+  color: rgba(255,255,255,.85);
+  font-size: 96px;
+}
+
+#play {  
+  font-family: Helvetica;
+  font-weight: 900;
+  color: rgba(255,255,255,.85);
+  font-size: 96px;
+}
+
+.image-container {
+  position: relative;
+  display: inline-block;
+}
+
+.image-container img {
+  display: block;
+  border-top-right-radius: 20px;
+  border-top-left-radius: 20px;
+}
+
+.image-container .overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: none;
+  color: #FFF;
+}
+
+.image-container:hover .overlay {
+  display: block;
+  background: rgba(0, 0, 0, .6);
+  border-top-right-radius: 20px;
+  border-top-left-radius: 20px;
+  -webkit-transition: opacity .25s ease;
+  -moz-transition: opacity .25s ease;
+}
+
+.image-container .dark .overlay {
+  display: block;
+  background: rgba(0, 0, 0, .6);
+  border-top-right-radius: 20px;
+  border-top-left-radius: 20px;
+  -webkit-transition: opacity .25s ease;
+  -moz-transition: opacity .25s ease;
+}
+
+.image-container .overlay .content {
+  position: absolute;
+  bottom: 0;
+  font-family: Arial;
+  text-align: center;
+  width: 100%;
+  box-sizing: border-box;
+  padding: 5px;
+}
+
+#id-hover-image {
+  color: #DDD;
+  font-size: 48px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  margin: -30px 0 0 -19px;
+  height: 50px;
+  width: 45px;
+  cursor: pointer;
+}
+
+#id-hover-image:hover {
+  color: #FFF;
+}
+
+.live-status {
+  color: red;
+  margin-left: 5px;
+}
+
+.favorite-btn {
+  background: transparent;
+  border-color: transparent;
+}
+
+/** PLAYLIST **/
+
+.playlist-li {
+  list-style: none;
+  display: block;
+  text-align: left;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  white-space: nowrap;
+  position: relative;
+  width: 100%;
+}
+.playlist-li:hover {
+  background-color: lightgrey;
+}
+#id-loading {
+  margin-top: 10px;
+}
+.text-artist {
+  margin-left: 10px;
+  font-weight: 100;
+  font-size: 8px;
+  text-align: left;
+}
+.text-song {
+  margin-left: 20px;
+  font-weight: 900;
+  font-size: 12px;
+  text-align: left;
+}
+.right {
+  right: 5px;
+  bottom: 15;
+}
+.table-cell-style {
+  text-align: left;
+  display: inline-block
+}
+.table-header {
+  border-bottom: 1px solid lightgrey
+}
+
+/** LISTENERS OVERLAY 
+ * when .item:hover, show overlay.
+ * overwrite .item-overlay."position"
+ */
+.item:hover .item-overlay.top {
+  top: 0;
+}
+.item:hover .item-overlay.right {
+  right: 0;
+  left: 0;
+}
+.item:hover .item-overlay.bottom {
+  bottom: 0;
+}
+.item:hover .item-overlay.left {
+  left: 0;
+}
+
+/* by default, overlay is visible… */
+.item-overlay {
+  position: absolute;
+  top: 0; right: 0; bottom: 0; left: 0;
+  
+  background: rgba(0,0,0,0.5);
+  color: #fff;
+  overflow: hidden;
+  text-align: left;
+  /* fix text transition issue for .left and .right but need to overwrite left and right properties in .right */
+  width: 100%; 
+  
+  -moz-transition: top 0.3s, right 0.3s, bottom 0.3s, left 0.3s;
+  -webkit-transition: top 0.3s, right 0.3s, bottom 0.3s, left 0.3s;
+  transition: top 0.3s, right 0.3s, bottom 0.3s, left 0.3s;
+}
+
+/* this hides the overlay */
+.item-overlay.top {
+  top: 100%;
+}
+.item-overlay.right {
+  right: 200%;
+  left: -100%;
+}
+.item-overlay.bottom {
+  bottom: 100%;
+}
+.item-overlay.left {
+  left: 100%;
+}
+
+/* misc. CSS */
+* {
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+.item {
+  position: relative;
+}
+
+#message-header {
+  position: relative;
+}
+
+#listeners-icon {
+  color: #ffa6bc;
+  font-size: 18px; // h4
+  font-weight: normal;
+  position: absolute;
+  right: 10px;
+  top: 12px;
+  font-size: 15px;
+  background-color: transparent;
+  border-color: transparent;
+}
+#listeners-icon:hover {
+  color: white;
+}
+#listeners-icon.selected {
+  color: white;
+  font-weight: bold;
+}
+#listeners-icon.selected:hover
+  color: white;
+  text-decoration: underline;
+}
+.btn:focus {
+  outline: none;
+}
+.btn:focus{
+ outline: none !important;
+}
+
+.my-avatar {
+  border-radius: 15px;
+  width: 30px;
+  height: 30px;
+  padding: 0px 0px 0px 0px;
+  margin-bottom: 4px;
+  margin-right: 3px;
+  border-width: thin;
+  border-color: #ff3366;
+  border-style: solid;
+}
+
+.user-avatar {
+  border-radius: 14px;
+  width: 26px;
+  height: 26px;
+  padding: 0px 0px 0px 0px;
+  margin-bottom: 2px;
+  margin-right: 8px;
+  border-width: thin;
+  border-color: #ff3366;
+  border-style: solid;
+}
+
+#bg-404 {
+  position: fixed; 
+  top: 0; 
+  left: 0; 
+  
+  /* Preserve aspet ratio */
+  max-width: 100%;
+  max-height: 100%;
+}

@@ -1,0 +1,46 @@
+{% extends "base.html" %}
+{% load staticfiles %}
+
+{% block title %}Musicify login{% endblock %}
+{% block custom-css %}
+<link href="{% static '/css/login.css' %}" rel="stylesheet">
+{% endblock %}
+
+{% block body %}
+
+<!-- If there is error, output a generic error message instead of incorrect username or password
+     to prevent attacker from guessing if either one is correct -->
+{% if form.errors or errors %}
+<div class="alert alert-danger" role="alert">
+  Incorrect combination of username and password.
+</div>
+{% endif %}
+
+<div class="container">
+  <h2 class="form-heading" >Please sign in using your MUSICIFY account</h2>
+
+  <form class="form-signin" action="{% url 'log-in' %}" method="POST">
+    {% csrf_token %} 
+    {% for field in form %}
+    {% if field.label == 'Password' %}
+    <input type="password" class="form-control"
+           name="{{ field.name }}"
+           id="id_{{ field.name }}"
+           placeholder="{{ field.label }}" >
+    {% else %}
+    <input type="username" class="form-control"
+           name="{{ field.name }}"
+           id="id_{{ field.name }}"
+           placeholder="{{ field.label }}" >
+    {% endif %}
+    {% endfor %}
+    <input type="submit" value="Log in" class="btn btn-primary btn-lg btn-block">
+    <input type="hidden" name="next" value="{{ next }}"> 
+  </form>
+
+</div> <!-- /container -->
+
+<a class="hyperlink" href="{% url 'register' %}">Don't have an account? Click here to join.</a>
+<a class="hyperlink" href="{% url 'forget-password' %}">Forgot password? Click here to reset.</a>
+
+{% endblock body %}

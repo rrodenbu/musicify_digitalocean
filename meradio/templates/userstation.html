@@ -1,0 +1,126 @@
+{% extends "base.html" %}
+{% load staticfiles %}
+
+{% block title %}Musicify {{profile.user.username}}'s station.{% endblock %}
+{% block custom-css %}
+<!-- put any custom css files here -->
+{% endblock %}
+
+{% block page-heading %}
+
+<button id="id-favorite-btn" type="submit" class="btn btn-default favorite-btn">
+  {% if is_favorite %}
+  <span id="id-favorite-btn-span" class="glyphicon glyphicon-star" aria-hidden="true"></span>
+  {% else %}
+  <span id="id-favorite-btn-span" class="glyphicon glyphicon-star-empty" aria-hidden="true"></span>
+  {% endif %}
+</button>
+{{profile.user.first_name}} {{profile.user.last_name}}'s station.
+
+<p hidden id="id-station-username">{{profile.user.username}}</p>
+<img hidden id = "id-live-icon" src="{% static '/images/live_icon.gif' %}" alt="LIVE" width="50px">
+<img id = "id-not-live-icon" src="{% static '/images/not_live_icon.png' %}" alt="NOT LIVE" width="50px">
+{% endblock %}
+
+
+{% block body %}
+<input id="id-username" type="hidden" value="{{profile.user.username}}">
+
+<div class="row">
+  {% if profile.description == "" %}
+  <i>No description</i>
+  {% else %}
+  {{ profile.description }}
+  {% endif %}
+</div>
+
+<br>
+
+<div class="mystation-container" >
+
+  <div class="row">
+
+    <div hidden class="col-md-6" id="id-page-content">
+      <div class="album-details">
+	
+	<!--
+	    <iframe class="panel panel-default" src="https://embed.spotify.com/?uri=spotify%3Atrack%3A33Q6ldVXuJyQmqs8BmAa0k&theme=white" width="300" height="380" allowtransparency="true"></iframe>
+	    -->
+
+	<div class="panel panel-default">
+
+        <div class="panel-heading album-cover">
+          <div class="image-container">
+            <img id="id-cover" src="" class="img-responsive center-block" />
+            <div id="id-overlay" class="overlay">
+              <span id="id-hover-image" class="glyphicon glyphicon-volume-up"></span>
+            </div>
+          </div>
+        </div>
+
+        <div class="panel-body">
+         <div class="playlist-icons">
+            <button id="id-mute-unmute-button" type="button" class="playlist-icon play-btn">
+              <span id="id-mute-unmute-button-span" class="glyphicon glyphicon-volume-up" aria-hidden="true"></span>
+            </button>
+          </div>
+
+          <h3><b id="id-name"></b></h3>
+          <div id="id-artist"></div>
+              <input id="id-preview" type="hidden" value="">
+              <input id="id-track" type="hidden" value="">
+              <audio id="id-music-player" src=""></audio>
+        </div> <!-- panel body -->
+	</div> <!-- panel panel-default -->
+
+      </div> <!-- panel panel-default -->
+    </div> <!-- end middle column -->
+    
+    <div class="col-md" id="messaging-content">
+
+      <div class="chat-details">
+        <div class="panel panel-default">
+          <div class="panel-heading">
+            <div class="sidepanel-heading" id="message-header">
+              <div id="messages-label" class="selected">
+                Messaging
+              </div>
+              <button id="listeners-icon" type="button" class="btn btn-default">
+                <span class="glyphicon glyphicon-user" aria-hidden="true"></span>
+                <span id="id_total_users"> <span>
+              </button>
+              {% if user.is_authenticated %}
+                <input id="id-logged-in-user" type="hidden" value="{{user.username}}">
+              {% endif %}
+            </div>
+          </div>
+
+          <div id="messages-listeners-panel" class="panel-body">
+            <div id="messages-panel">
+              <div id="messages"></div>
+              <br>
+              <hr class="small-space">
+              <div class="message-form">
+          <form>
+            <input id="chat-input" class="form-control message-input" type="text" placeholder="type message here...">
+          </form>
+              </div>
+            </div>
+            <div hidden id="listeners"></div>
+          </div>
+    
+
+      </div>
+
+    </div> <!-- end column -->
+
+  </div> <!-- end row -->
+</div>
+{% endblock %}
+
+{% block javascript %}
+<script src="{% static '/js/user-station.js' %}" type = "text/javascript"></script>
+<script src="{% static '/js/musicify.js' %}" type = "text/javascript"></script>
+<script src="//media.twiliocdn.com/sdk/js/common/v0.1/twilio-common.min.js"></script>
+<script src="//media.twiliocdn.com/sdk/rtc/js/ip-messaging/v0.9/twilio-ip-messaging.min.js"></script>
+{% endblock %}

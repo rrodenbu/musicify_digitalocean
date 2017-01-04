@@ -1,0 +1,149 @@
+body {
+  padding-top: 80px;	 
+  padding-bottom: 40px;
+  background-color: white;
+  align: center;
+}
+
+.page-heading {
+  align: center;
+  font-size: 25px;
+  padding-bottom: 25px;
+}
+
+/****** MY STATION PAGE *******/
+.album-details {
+  max-width: 275px;
+}
+
+.listener-details {
+  max-width: 350px;
+}
+
+.chat-details {
+  max-width: 350px;
+}
+
+.playlist-details {
+  max-width: 350px;
+}
+
+.friends-details {
+  max-width: 350px;
+}
+
+.find-friends-details {
+  max-width: 350px;
+}
+
+.message-input {
+  margin: 0px 10px 10px 10px;
+  border-radius: 15px;
+  max-width: 320px;
+  width: 90%;
+  overflow-y: scroll;
+}
+
+.search-input {
+  margin: 0px 10px 10px 10px;
+  border-radius: 15px;
+  max-width: 320px;
+  width: 90%;
+  overflow-y: scroll;
+}
+
+#listeners {
+  max-height: 200px;
+  overflow-y: scroll;
+  text-align: left;
+  margin-left: 15px;
+  margin-top: 10px;
+}
+
+#messages {
+  max-height: 200px;
+  overflow-y: scroll;
+  text-align: left;
+  margin-left: 15px;
+}
+
+
+#recommended-songs {
+  max-height: 300px;
+  text-overflow: ellipsis;
+  overflow-y: scroll;
+  text-align: left;
+  position: relative;
+}
+
+#liked-songs {
+  max-height: 300px;
+  text-overflow: ellipsis;
+  overflow-y: scroll;
+  text-align: left;
+  position: relative;
+}
+
+#liked-recommended-panel {
+  margin-top: -5px;
+  text-align: center;
+}
+
+#liked-recommended-heading > a {
+  color: #ffa6bc;
+  font-size: 18px; // h4
+  font-weight: normal;
+}
+#liked-recommended-heading > a:hover {
+  color: white;
+  text-decoration: underline;
+}
+#liked-recommended-heading > a.selected {
+  color: white;
+  font-weight: bold;
+}
+#liked-recommended-heading > a.selected:hover {
+  color: white;
+  text-decoration: underline;
+}
+
+#messages-label {
+  color: #ffa6bc;
+  font-size: 18px; // h4
+  font-weight: normal;
+}
+#messages-label:hover {
+  color: white;
+  text-decoration: underline;
+}
+#messages-label.selected {
+  color: white;
+  font-weight: bold;
+}
+#messages-label.selected:hover
+  color: white;
+  text-decoration: underline;
+}
+
+#listeners-icon {
+  color: #ffa6bc;
+  font-size: 18px; // h4
+  font-weight: normal;
+  position: absolute;
+  right: 10px;
+  top: 12px;
+  font-size: 15px;
+  background-color: transparent;
+  border-color: transparent;
+}
+#listeners-icon:hover {
+  color: white;
+}
+#listeners-icon.selected {
+  color: white;
+  font-weight: bold;
+}
+#listeners-icon.selected:hover
+  color: white;
+  text-decoration: underline;
+}

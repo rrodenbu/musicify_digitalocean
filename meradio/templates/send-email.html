@@ -1,0 +1,53 @@
+{% extends "base.html" %}
+{% load staticfiles %}
+
+{% block title %}Musicify forgot{% endblock %}
+{% block custom-css %}
+<link href="{% static '/css/forgotpw.css' %}" rel="stylesheet">
+{% endblock %}
+
+{% block body %}
+
+{% if messages %}
+{% for msg in messages %}
+<div class="alert alert-info" role="alert">
+  {{ msg }}
+</div>
+{% endfor %}
+{% endif %}
+
+{% if error_messages %}
+{% for msg in error_messages %}
+<div class="alert alert-danger" role="alert">
+  {{ msg }}
+</div>
+{% endfor %}
+{% endif %}
+
+{% for error in form.non_field_errors %}
+<div class="alert alert-danger" role="alert">
+  {{ error }}
+</div>
+{% endfor %}
+
+<h3 class="form-heading" >Forgot password?</h3>
+<br>
+<h5>Please enter the email that your account is registered under</h5>
+
+<form class="form-signin" action="{% url 'forget-password' %}" method="POST">
+  {% for field in form %}
+  <input type="text" class="form-control"
+         name="email"
+         id="id_{{ field.name }}"
+         placeholder="{{ field.label }}" >
+  {% endfor %}
+  
+  <input type="submit" value="Send Email" class="btn btn-lg btn-primary btn-block">
+  {% csrf_token %}
+</form>
+
+<div></div>
+<a class="hyperlink" href="{% url 'log-in' %}">Have an account? Click here to sign in.</a><br>
+<a class="hyperlink" href="{% url 'register' %}">Don't have an account? Click here to join.</a>
+
+{% endblock %}

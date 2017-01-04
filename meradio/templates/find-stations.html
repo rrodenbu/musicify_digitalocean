@@ -1,0 +1,102 @@
+{% extends "base.html" %}
+{% load staticfiles %}
+
+{% block title %}Musicify friends stations{% endblock %}
+{% block custom-css %}
+<!-- put any custom css files here -->
+{% endblock %}
+
+{% block page-heading %}find stations.{% endblock %}
+
+{% block body %}
+<div class="explore-container">
+  <div class="row">
+    
+    <div class="col-md-6">
+      <div class="friends-details">
+	<div class="panel panel-default">
+	  <div class="panel-heading">
+	    <div class="sidepanel-heading">
+	      <h4>Favorites</h4>
+	    </div>
+	  </div>
+	  <div class="panel-body">
+            <div id="id-favorite-loading">
+	      <br>
+	      <div class="preloader-wrapper small active">
+		<div class="spinner-layer spinner-red-only">
+	          <div class="circle-clipper left">
+	            <div class="circle"></div>
+	          </div><div class="gap-patch">
+	            <div class="circle"></div>
+	          </div><div class="circle-clipper right">
+	            <div class="circle"></div>
+	          </div>
+		</div>
+	      </div>
+	    </div>
+	    
+	    <div id="id-favorite-results" class="sidepanel-body"> <!-- done in js -->
+	      
+	    </div>
+	  </div> <!-- end panel body -->
+	</div> <!-- end panel panel default -->
+      </div> <!-- end favorites details -->
+    </div> <!-- end col -->
+
+    <div class="col-md-6">
+      <div class="find-friends-details">
+	<div class="panel panel-default">
+	  <div class="panel-heading">
+	    <div class="sidepanel-heading">
+	      <h4>Find</h4>
+	    </div>
+	  </div>
+	  <div class="panel-body">
+	    <div class="search-form">
+	      <form>
+		<input id="id-input-search" class="form-control search-input" type="text" placeholder="search...">
+	      </form>
+	    </div>
+	    <hr id="id-start-of-search-result" class="no-space">
+
+	    <div id="id-search-result" class="sidepanel-body">
+            <!--<img src="{% static '/images/loading.gif' %}" alt="Loading" width="350px">-->
+	    </div>
+	  </div> <!-- end panel body-->
+	</div> <!-- end panel panel default -->
+      </div> <!-- end find friends details -->
+    </div> <!-- end col -->
+
+    <!-- <div hidden class="col-md-4">
+      <div class="matched-details">
+	<div class="panel panel-default">
+	  <div class="panel-heading">
+	    <div class="sidepanel-heading">
+	      <h4>Matched</h4>
+	    </div>
+	  </div>
+	  <div class="panel-body">
+	    <div class="sidepanel-body">
+	      {% for profile in profiles %}
+	      <div class="friend">
+                <img class="user-avatar" src="{% url 'get-avatar' username=profile.user.username %}">
+		<a href="{% url 'user-station' username=profile.user.username %}">{{profile.user.first_name}} {{profile.user.last_name}}</a>
+		<img class="status-dot" src="{% static '/images/gray-dot.png' %}" width="8px">
+		<hr class="no-space">
+	      </div>
+	      {% endfor %}
+	    </div>
+	  </div>
+	</div>
+      </div>
+    </div>
+
+  </div> -->
+
+</div>
+{% endblock %}
+
+{% block javascript %}
+    <script src="{% static '/js/find-stations.js' %}" type="text/javascript"></script>
+{% endblock %}

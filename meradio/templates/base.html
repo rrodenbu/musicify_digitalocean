@@ -1,0 +1,126 @@
+{% load staticfiles %}
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="icon" href="{% static 'images/meradio-icon.png' %}">
+
+    <title>{% block title %} {% endblock %}</title>
+
+    <!-- Bootstrap core CSS -->
+
+    <link href="{% static 'css/bootstrap.css' %}" rel="stylesheet">
+
+    <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+    <link href="{% static '/css/ie10-viewport-bug-workaround.css' %}" rel="stylesheet">
+
+    <!--Import materialize.css-->
+    
+    <link type="text/css" rel="stylesheet" href="{% static 'css/materialize.css' %}"  media="screen,projection"/>
+    
+
+    <!-- Custom styles for this template -->
+    <link type="text/css" href="{% static '/css/musicify.css' %}" rel="stylesheet">
+    <link type="text/css" href="{% static '/css/base.css' %}" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Quicksand" rel="stylesheet">
+    {% block custom-css %}{% endblock %}
+
+    {% block head %}{% endblock %}
+  </head>
+
+    <div hidden id="id-browser-warning" class="alert alert-danger" role="alert" align="center">
+      Using browsers other than Google Chrome or Mozilla Firefox may cause the page to function improperly.<br>
+        For best experience, please use <a class="hyperlink" href="https://www.google.com/chrome/browser/desktop/">Chrome</a>.
+    </div>
+  <!-- navigation bar -->
+  <nav class="navbar navbar-default navbar-fixed-top">
+    <div class="container">
+      
+      <div class="navbar-header">
+	<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="{% url 'home' %}" id="brand">MUSICIFY</a>
+      </div> <!-- /.navbar-header -->
+
+      {% if user.is_authenticated %}
+      <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+        	<div class="navbar-right">
+        	  <ul class="nav navbar-nav">
+
+        	    <li><a href="{% url 'explore' %}">explore</a></li>
+        	    <li><a href="{% url 'user-station' username=user.username %}">my station</a></li>
+        	    <li><a href="{% url 'find-stations' %}">find stations</a></li>
+
+        	    <li class="dropdown">
+
+          	      <div class="navbar-text dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+              		    <img class="my-avatar" src="{% url 'get-avatar' username=user.username %}">
+              		   <!--  <b>{{user.username}}</b> -->
+          	      </div>
+
+          	      <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
+                  		<li><a href="{% url 'settings' %}">settings</a></li>
+                  		<li role="separator" class="divider"></li>
+                  		<li><a href="{% url 'log-out' %}">log out</a></li>
+          	      </ul>
+        	    </li> <!-- /.dropdown -->
+
+        	  </ul>
+        	</div>
+      </div> <!-- /.collapse -->	
+      {% endif %}
+
+      <hr class="navline"/>
+    </div>
+  </nav>
+
+  <body>
+
+    <div class="container" align="center">
+      <div class="page-heading">
+	<b>{% block page-heading %}{% endblock %}</b>
+      </div>
+      {% block body %}{% endblock %}
+    </div>
+  </body>
+
+  <footer>
+    {% block footer %}{% endblock %}
+  </footer>
+  
+  <!-- Bootstrap core JavaScript                                                                                                  
+       ================================================== -->
+  <!-- Placed at the end of the document so the pages load faster -->
+  <script src="{% static 'js/jquery-2.1.4.min.js' %}"></script>
+  <script>window.jQuery || document.write('<script src="{% static  'js/jquery-2.1.4.min.js' %}"><\/script>')</script>
+    <script src="{% static 'js/bootstrap.min.js' %}"></script>
+    <script src="{% static 'js/materialize.js' %}"></script>
+    
+    <!-- materialize already includes velocity 
+    <script src="{% static 'js/velocity.min.js' %}"></script>
+    -->
+
+    <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+    <script src="{% static 'js/ie10-viewport-bug-workaround.js' %}"></script>
+    <!-- <script type="text/javascript" src="{% static 'js/materialize.js' %}"></script> -->
+    {% block javascript %} {% endblock %}
+    <script>
+        var ischrome = !!window.chrome && !!window.chrome.webstore;
+        var isFirefox = typeof InstallTrigger !== 'undefined';
+        if (!ischrome && !isFirefox) {
+            $('#id-browser-warning').show();
+        } else {
+            $('#id-browser-warning').hide();
+        }
+    </script>
+</html>

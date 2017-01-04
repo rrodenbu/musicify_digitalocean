@@ -1,0 +1,12 @@
+{% extends "base.html" %}
+{% load staticfiles %}
+
+{% block title %}Musicify home{% endblock %}
+{% block custom-css %}
+<link href="{% static '/css/login.css' %}" rel="stylesheet">
+{% endblock %}
+
+{% block body %}
+<a class="btn btn-lg btn-default" href="{% url 'register' %}">Register</a>
+<a class="btn btn-lg btn-primary" href="{% url 'log-in' %}">Log In</a>
+{% endblock %}

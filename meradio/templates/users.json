@@ -1,0 +1,1 @@
+[{% for user in users %}{%spaceless%}{"username":"{{user.username}}", "first_name":"{{user.first_name}}", "last_name":"{{user.last_name}}", "status":"{{user.status}}", "in_favorite":"{{user.in_favorite}}", "is_live":"{{user.is_live}}"}{%endspaceless%}{% if not forloop.last %}, {% endif %}{% endfor %}]

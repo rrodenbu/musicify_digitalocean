@@ -1,0 +1,68 @@
+{% extends "base.html" %}
+{% load staticfiles %}
+
+{% block title %}Musicify explore{% endblock %}
+{% block custom-css %}
+<!-- put any custom css files here -->
+{% endblock %}
+
+{% block page-heading %}explore.{% endblock %}
+
+{% block body %}
+<div class="explore-container">
+  <div class="row">
+    <div class="col-md-1"></div>
+    <div class="col-md-1"></div>
+    <div class="col-md-1">
+      <br><br><br><br><br><br><br>
+      <button id="id-dislike-button" type="button" class="btn btn-default explore-btn explore-btn-dislike">
+	<span class="glyphicon glyphicon-remove-sign explore-btn-span" aria-hidden="true"></span>
+      </button>
+    </div>
+    
+    <div class="col-md-6">
+      <div class="album-details">
+	<div class="panel panel-default">
+	  
+	  <div class="panel-heading album-cover">
+	    <div class="image-container">
+	      <img id="id-cover" src="{{song.cover}}" class="img-responsive center-block" />
+	      <div id="id-overlay" class="overlay">
+		<span id="id-hover-image" class="glyphicon glyphicon-pause"></span>
+	      </div>
+	    </div>
+	  </div>
+
+	  <!-- <div id="id-progress" class="progress time-bar">
+	    <div id="id-time-bar" class="progress-bar" role="progressbar" style="width: 0%;"></div>
+	  </div> -->
+	  
+	  <div class="panel-body">	    
+	    <h3 class="song-title"><b id="id-name">{{song.name}}</b></h3>
+	    <div id="id-artist">{{song.artist}}</div>
+	    <input id="id-preview" type="hidden" value="{{song.preview}}">
+	    <input id="id-track" type="hidden" value="{{song.track_id}}">
+	    <audio id="id-music-player" autoplay="autoplay" loop="true" src=""></audio> 
+	  </div>
+	</div>
+      </div>
+    </div>
+    
+    <div class="col-md-1">
+      <br><br><br><br><br><br><br>
+      <button id="id-like-button" type="button" class="btn btn-default explore-btn explore-btn-like">
+	<span class="glyphicon glyphicon-ok-sign explore-btn-span" aria-hidden="true"></span>
+      </button>
+    </div>
+    <div class="col-md-1"></div>
+    <div class="col-md-1"></div>
+
+  </div> <!-- end row -->
+</div>
+
+{% endblock %}
+
+{% block javascript %}
+<script src="{% static '/js/explore.js' %}" type = "text/javascript"></script>
+<script src="{% static '/js/musicify.js' %}" type = "text/javascript"></script>
+{% endblock %}
