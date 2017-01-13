@@ -6,6 +6,10 @@ ssh root@192.241.176.138
 'Enter password'
 su - urban
 source bin/activate
+git pull
+python manage.py collectstatic
+python manage.py migrate
+sudo supervisorctl restart webapps
 
 Getting music
 
