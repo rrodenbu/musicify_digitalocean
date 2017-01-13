@@ -69,9 +69,9 @@ class RegistrationForm(forms.Form):
         if password1 and password2 and password1 != password2:
             raise forms.ValidationError('Passwords did not match.')
 
-        email = cleaned_data.get('email')
-        if not User.objects.filter(email=email).count() == 0:
-            raise forms.ValidationError('There is another account under this email address.')
+#         email = cleaned_data.get('email')
+#         if not User.objects.filter(email=email).count() == 0:
+#             raise forms.ValidationError('There is another account under this email address.')
 
         # Generally return the cleaned data we got from our parent.
         return cleaned_data
